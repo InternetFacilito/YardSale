@@ -1,0 +1,144 @@
+<resources>
+    <string name="app_name">Yard Sale</string>
+    
+    <!-- Login Screen -->
+    <string name="login_title">Se Connecter</string>
+    <string name="login_welcome">Bienvenue sur YardSale</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Mot de passe</string>
+    <string name="login_button">Se Connecter</string>
+    <string name="login_cancel">Annuler</string>
+    <string name="login_register_link">Vous n\'avez pas de compte ? Inscrivez-vous</string>
+    <string name="login_forgot_password">Mot de passe oublié ?</string>
+    <string name="login_forgot_password_message">Veuillez contacter l\'administrateur pour récupérer votre compte.</string>
+    <string name="login_show_password">Afficher le mot de passe</string>
+    <string name="login_hide_password">Masquer le mot de passe</string>
+    
+    <!-- Register Screen -->
+    <string name="register_title">S\'inscrire</string>
+    <string name="register_full_name">Nom complet</string>
+    <string name="register_email">Email</string>
+    <string name="register_password">Mot de passe</string>
+    <string name="register_confirm_password">Confirmer le mot de passe</string>
+    <string name="register_user_type">Type d\'utilisateur :</string>
+    <string name="register_seller">Vendeur</string>
+    <string name="register_buyer">Acheteur</string>
+    <string name="register_button">S\'inscrire</string>
+    <string name="register_cancel">Annuler</string>
+    <string name="register_login_link">Vous avez déjà un compte ? Connectez-vous</string>
+    <string name="register_info_title">Information :</string>
+    <string name="register_info_seller">• Vendeur : Vous pouvez créer et gérer des yard sales</string>
+    <string name="register_info_buyer">• Acheteur : Vous pouvez rechercher et évaluer des yard sales</string>
+    <string name="register_info_password">• Le mot de passe doit contenir au moins 6 caractères</string>
+    <string name="register_show_password">Afficher le mot de passe</string>
+    <string name="register_hide_password">Masquer le mot de passe</string>
+    <string name="register_show_confirm_password">Afficher la confirmation du mot de passe</string>
+    <string name="register_hide_confirm_password">Masquer la confirmation du mot de passe</string>
+    
+    <!-- Guest Menu -->
+    <string name="guest_menu_title">Utilisateur Non Inscrit</string>
+    <string name="guest_menu_device_info">Informations de l\'Appareil</string>
+    <string name="guest_menu_sessions_used">Sessions utilisées : %1$d/10</string>
+    <string name="guest_menu_sessions_remaining">Sessions restantes : %1$d</string>
+    <string name="guest_menu_last_session">⚠️ Dernière session disponible</string>
+    <string name="guest_menu_limit_reached">🚫 LIMITE DE SESSIONS ATTEINTE</string>
+    <string name="guest_menu_last_session_message">Inscrivez-vous pour continuer à utiliser l\'application sans limites.</string>
+    <string name="guest_menu_limit_reached_message">Vous avez atteint la limite de 10 sessions pour les utilisateurs non inscrits. Pour continuer à utiliser l\'application, vous devez vous inscrire ou vous connecter.</string>
+    <string name="guest_menu_login">Se Connecter</string>
+    <string name="guest_menu_register">S\'inscrire</string>
+    <string name="guest_menu_hide">Masquer les Informations</string>
+    <string name="guest_menu_why_register">Pourquoi s\'inscrire ?</string>
+    <string name="guest_menu_benefit_1">• Accès illimité à toutes les fonctionnalités</string>
+    <string name="guest_menu_benefit_2">• Créer et gérer des yard sales (vendeurs)</string>
+    <string name="guest_menu_benefit_3">• Évaluer et signaler des yard sales (acheteurs)</string>
+    <string name="guest_menu_benefit_4">• Sauvegarder les favoris et recevoir des notifications</string>
+    
+    <!-- Map Screen -->
+    <string name="map_title">Carte des Yard Sales</string>
+    <string name="map_sign_out">Se Déconnecter</string>
+    <string name="map_register">S\'inscrire</string>
+    <string name="map_login">Se Connecter</string>
+    
+    <!-- Common -->
+    <string name="common_loading">Chargement...</string>
+    <string name="common_error">Erreur</string>
+    <string name="common_ok">OK</string>
+    <string name="common_cancel">Annuler</string>
+    <string name="common_dismiss">OK</string>
+    <string name="common_back">Retour</string>
+    <string name="common_exit_prompt">Appuyez à nouveau pour quitter</string>
+    
+    <!-- Error Messages -->
+    <string name="error_network">Erreur de connexion. Vérifiez votre connexion internet.</string>
+    <string name="error_auth_failed">Erreur d\'authentification. Vérifiez vos identifiants.</string>
+    <string name="error_weak_password">Le mot de passe doit contenir au moins 6 caractères.</string>
+    <string name="error_passwords_not_match">Les mots de passe ne correspondent pas.</string>
+    <string name="error_invalid_email">Email invalide.</string>
+    <string name="error_field_required">Ce champ est obligatoire.</string>
+    <string name="error_name_too_short">Le nom doit contenir au moins 2 caractères.</string>
+    
+    <!-- Firebase Error Messages -->
+    <string name="error_email_already_exists">L\'email est déjà enregistré. Essayez un autre email ou connectez-vous.</string>
+    <string name="error_invalid_password">Le mot de passe ne respecte pas les exigences de sécurité.</string>
+    <string name="error_timeout">Délai d\'attente dépassé. Veuillez réessayer.</string>
+    <string name="error_user_not_found">Aucun compte trouvé avec cet email. Inscrivez-vous d\'abord.</string>
+    <string name="error_wrong_password">Mot de passe incorrect. Vérifiez votre mot de passe.</string>
+    <string name="error_registration_failed">Erreur lors de l\'inscription de l\'utilisateur</string>
+    <string name="error_login_failed">Erreur lors de la connexion</string>
+    <string name="error_unexpected">Erreur inattendue</string>
+    <string name="error_unexpected_with_details">Erreur inattendue : %s</string>
+    <string name="error_recaptcha_config">Erreur de configuration de sécurité. Contactez l\'administrateur.</string>
+    <string name="error_initialization">Erreur lors de l\'initialisation de l\'application</string>
+    <string name="error_guest_session">Erreur lors de l\'initialisation de la session invité</string>
+    <string name="error_device_id">Erreur lors de l\'obtention de l\'ID du dispositif</string>
+    <string name="success_registration">Inscription réussie ! Bienvenue sur YardSale.</string>
+    
+    <!-- User Menu -->
+    <string name="user_menu_profile">Profil</string>
+    <string name="user_menu_welcome">Bienvenue</string>
+    <string name="user_menu_email">Email</string>
+    <string name="user_menu_type">Type d\'utilisateur</string>
+    <string name="user_menu_seller">Vendeur</string>
+    <string name="user_menu_buyer">Acheteur</string>
+    <string name="user_menu_sign_out">Se déconnecter</string>
+    <string name="user_menu_close">Fermer le menu</string>
+    
+    <!-- Map and Location -->
+    <string name="location_permission_required">Permissions de localisation requises</string>
+    <string name="location_permission_description">Pour afficher votre position sur la carte et les ventes de garage à proximité, nous avons besoin d\'accéder à votre localisation.</string>
+    <string name="grant_permissions">Accorder les permissions</string>
+    <string name="getting_location">Obtention de la localisation...</string>
+    <string name="your_location">Votre position</string>
+    <string name="search_radius">Rayon de recherche : 1 km</string>
+    <string name="retry">Réessayer</string>
+    <string name="location_permission_denied">Permissions de localisation non accordées</string>
+    <string name="location_error_generic">Impossible d\'obtenir la position actuelle</string>
+    <string name="location_error_generic_with_message">Erreur lors de l\'obtention de la localisation : %s</string>
+    <string name="active_yard_sales">%d ventes de garage actives</string>
+    <string name="and_more">... et %d autres</string>
+    <string name="current_location_snippet">Position actuelle</string>
+    <string name="my_location">Ma Position</string>
+    <string name="exploring_location">Exploration de l\'emplacement</string>
+    <string name="exploring_snippet">Emplacement sélectionné manuellement</string>
+    
+    <!-- Session Choice Screen -->
+    <string name="session_choice_title">Comment souhaitez-vous continuer ?</string>
+    <string name="session_choice_subtitle">Choisissez une option pour continuer à utiliser YardSale</string>
+    <string name="session_choice_login">Se Connecter</string>
+    <string name="session_choice_register">S\'inscrire</string>
+    <string name="session_choice_or">ou</string>
+    <string name="session_choice_guest">Continuer en tant qu\'Invité</string>
+    <string name="session_choice_info_title">Information</string>
+    <string name="session_choice_info_description">En tant qu\'invité, vous pouvez explorer les ventes de garage, mais vous aurez un accès limité. Inscrivez-vous pour accéder à toutes les fonctionnalités.</string>
+    
+    <!-- Search Radius Configuration -->
+    <string name="search_radius_title">Configurer le Rayon de Recherche</string>
+    <string name="search_radius_description">Définissez le rayon en kilomètres pour rechercher des ventes de garage près de votre position</string>
+    <string name="search_radius_current">Rayon actuel : %1$.1f km</string>
+    <string name="search_radius_min">0,5 km</string>
+    <string name="search_radius_max">10 km</string>
+    <string name="search_radius_save">Enregistrer</string>
+    <string name="search_radius_cancel">Annuler</string>
+    <string name="success_radius_updated">Rayon de recherche mis à jour avec succès</string>
+    <string name="error_radius_update_failed">Erreur lors de la mise à jour du rayon de recherche</string>
+</resources> 

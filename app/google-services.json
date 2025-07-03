@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "188713479538",
+    "project_id": "yardsale-if",
+    "storage_bucket": "yardsale-if.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:188713479538:android:55249df191733bf9a681eb",
+        "android_client_info": {
+          "package_name": "com.internetfacilito.yardsale"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuaNsZU2ZK3HHEhs0VWBI6uvnXIGqtKnE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

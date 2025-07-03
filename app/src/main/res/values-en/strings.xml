@@ -1,0 +1,144 @@
+<resources>
+    <string name="app_name">Yard Sale</string>
+    
+    <!-- Login Screen -->
+    <string name="login_title">Sign In</string>
+    <string name="login_welcome">Welcome to YardSale</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login_button">Sign In</string>
+    <string name="login_cancel">Cancel</string>
+    <string name="login_register_link">Don\'t have an account? Sign up</string>
+    <string name="login_forgot_password">Forgot your password?</string>
+    <string name="login_forgot_password_message">Please contact the administrator to recover your account.</string>
+    <string name="login_show_password">Show password</string>
+    <string name="login_hide_password">Hide password</string>
+    
+    <!-- Register Screen -->
+    <string name="register_title">Sign Up</string>
+    <string name="register_full_name">Full Name</string>
+    <string name="register_email">Email</string>
+    <string name="register_password">Password</string>
+    <string name="register_confirm_password">Confirm Password</string>
+    <string name="register_user_type">User Type:</string>
+    <string name="register_seller">Seller</string>
+    <string name="register_buyer">Buyer</string>
+    <string name="register_button">Sign Up</string>
+    <string name="register_cancel">Cancel</string>
+    <string name="register_login_link">Already have an account? Sign in</string>
+    <string name="register_info_title">Information:</string>
+    <string name="register_info_seller">• Seller: You can create and manage yard sales</string>
+    <string name="register_info_buyer">• Buyer: You can search and rate yard sales</string>
+    <string name="register_info_password">• Password must be at least 6 characters long</string>
+    <string name="register_show_password">Show password</string>
+    <string name="register_hide_password">Hide password</string>
+    <string name="register_show_confirm_password">Show password confirmation</string>
+    <string name="register_hide_confirm_password">Hide password confirmation</string>
+    
+    <!-- Guest Menu -->
+    <string name="guest_menu_title">Unregistered User</string>
+    <string name="guest_menu_device_info">Device Information</string>
+    <string name="guest_menu_sessions_used">Sessions used: %1$d/10</string>
+    <string name="guest_menu_sessions_remaining">Sessions remaining: %1$d</string>
+    <string name="guest_menu_last_session">⚠️ Last session available</string>
+    <string name="guest_menu_limit_reached">🚫 SESSION LIMIT REACHED</string>
+    <string name="guest_menu_last_session_message">Sign up to continue using the app without limits.</string>
+    <string name="guest_menu_limit_reached_message">You have reached the limit of 10 sessions for unregistered users. To continue using the app, you must register or sign in.</string>
+    <string name="guest_menu_login">Sign In</string>
+    <string name="guest_menu_register">Sign Up</string>
+    <string name="guest_menu_hide">Hide Information</string>
+    <string name="guest_menu_why_register">Why register?</string>
+    <string name="guest_menu_benefit_1">• Unlimited access to all features</string>
+    <string name="guest_menu_benefit_2">• Create and manage yard sales (sellers)</string>
+    <string name="guest_menu_benefit_3">• Rate and report yard sales (buyers)</string>
+    <string name="guest_menu_benefit_4">• Save favorites and receive notifications</string>
+    
+    <!-- Map Screen -->
+    <string name="map_title">Yard Sales Map</string>
+    <string name="map_sign_out">Sign Out</string>
+    <string name="map_register">Sign Up</string>
+    <string name="map_login">Sign In</string>
+    
+    <!-- Common -->
+    <string name="common_loading">Loading...</string>
+    <string name="common_error">Error</string>
+    <string name="common_ok">OK</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="common_dismiss">OK</string>
+    <string name="common_back">Back</string>
+    <string name="common_exit_prompt">Press again to exit</string>
+    
+    <!-- Error Messages -->
+    <string name="error_network">Connection error. Check your internet connection.</string>
+    <string name="error_auth_failed">Authentication error. Check your credentials.</string>
+    <string name="error_weak_password">Password must be at least 6 characters long.</string>
+    <string name="error_passwords_not_match">Passwords do not match.</string>
+    <string name="error_invalid_email">Invalid email.</string>
+    <string name="error_field_required">This field is required.</string>
+    <string name="error_name_too_short">Name must be at least 2 characters long.</string>
+    
+    <!-- Firebase Error Messages -->
+    <string name="error_email_already_exists">Email is already registered. Try another email or sign in.</string>
+    <string name="error_invalid_password">Password does not meet security requirements.</string>
+    <string name="error_timeout">Request timeout. Please try again.</string>
+    <string name="error_user_not_found">No account found with this email. Register first.</string>
+    <string name="error_wrong_password">Incorrect password. Check your password.</string>
+    <string name="error_registration_failed">Error registering user</string>
+    <string name="error_login_failed">Error signing in</string>
+    <string name="error_unexpected">Unexpected error</string>
+    <string name="error_unexpected_with_details">Unexpected error: %s</string>
+    <string name="error_recaptcha_config">Security configuration error. Contact administrator.</string>
+    <string name="error_initialization">Error initializing application</string>
+    <string name="error_guest_session">Error initializing guest session</string>
+    <string name="error_device_id">Error getting device ID</string>
+    <string name="success_registration">Registration successful! Welcome to YardSale.</string>
+    
+    <!-- User Menu -->
+    <string name="user_menu_profile">Profile</string>
+    <string name="user_menu_welcome">Welcome</string>
+    <string name="user_menu_email">Email</string>
+    <string name="user_menu_type">User type</string>
+    <string name="user_menu_seller">Seller</string>
+    <string name="user_menu_buyer">Buyer</string>
+    <string name="user_menu_sign_out">Sign Out</string>
+    <string name="user_menu_close">Close menu</string>
+    
+    <!-- Map and Location -->
+    <string name="location_permission_required">Location permissions required</string>
+    <string name="location_permission_description">To show your location on the map and nearby yard sales, we need access to your location.</string>
+    <string name="grant_permissions">Grant Permissions</string>
+    <string name="getting_location">Getting location...</string>
+    <string name="your_location">Your location</string>
+    <string name="search_radius">Search radius: 1 km</string>
+    <string name="retry">Retry</string>
+    <string name="location_permission_denied">Location permissions not granted</string>
+    <string name="location_error_generic">Could not get current location</string>
+    <string name="location_error_generic_with_message">Error getting location: %s</string>
+    <string name="active_yard_sales">%d active Yard Sales</string>
+    <string name="and_more">... and %d more</string>
+    <string name="current_location_snippet">Current location</string>
+    <string name="my_location">My Location</string>
+    <string name="exploring_location">Exploring location</string>
+    <string name="exploring_snippet">Manually selected location</string>
+    
+    <!-- Session Choice Screen -->
+    <string name="session_choice_title">How would you like to continue?</string>
+    <string name="session_choice_subtitle">Choose an option to continue using YardSale</string>
+    <string name="session_choice_login">Sign In</string>
+    <string name="session_choice_register">Sign Up</string>
+    <string name="session_choice_or">or</string>
+    <string name="session_choice_guest">Continue as Guest</string>
+    <string name="session_choice_info_title">Information</string>
+    <string name="session_choice_info_description">As a guest you can explore yard sales, but you\'ll have limited access. Sign up to access all features.</string>
+    
+    <!-- Search Radius Configuration -->
+    <string name="search_radius_title">Configure Search Radius</string>
+    <string name="search_radius_description">Set the radius in kilometers to search for yard sales near your location</string>
+    <string name="search_radius_current">Current radius: %1$.1f km</string>
+    <string name="search_radius_min">0.5 km</string>
+    <string name="search_radius_max">10 km</string>
+    <string name="search_radius_save">Save</string>
+    <string name="search_radius_cancel">Cancel</string>
+    <string name="success_radius_updated">Search radius updated successfully</string>
+    <string name="error_radius_update_failed">Error updating search radius</string>
+</resources> 
