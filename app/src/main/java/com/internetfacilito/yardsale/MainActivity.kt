@@ -41,6 +41,7 @@ import com.internetfacilito.yardsale.ui.theme.YardSaleTheme
 import com.internetfacilito.yardsale.ui.viewmodel.MainViewModel
 import com.internetfacilito.yardsale.ui.viewmodel.UiState
 import com.internetfacilito.yardsale.ui.screens.FloatingGuestMenu
+import com.internetfacilito.yardsale.data.model.DistanceUnit
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
