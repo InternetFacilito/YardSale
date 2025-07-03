@@ -5,6 +5,9 @@ plugins {
     id("com.google.gms.google-services")
 }
 
+// Leer la API key desde local.properties
+val MAPS_API_KEY = project.findProperty("MAPS_API_KEY") as String? ?: ""
+
 android {
     namespace = "com.internetfacilito.yardsale"
     compileSdk = 36
@@ -17,6 +20,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        
+        // Agregar la API key como recurso de string
+        resValue("string", "google_maps_key", MAPS_API_KEY)
     }
 
     buildTypes {
