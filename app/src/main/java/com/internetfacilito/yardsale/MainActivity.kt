@@ -501,7 +501,7 @@ fun YardSaleApp(viewModel: MainViewModel) {
                     currentUser?.let { user ->
                         SearchRadiusScreen(
                             user = user,
-                            onSave = { radius, unit ->
+                            onSave = { radius: Float, unit: DistanceUnit ->
                                 viewModel.updateUserSearchRadius(radius, unit)
                             },
                             onCancel = {
