@@ -140,5 +140,16 @@
     <string name="search_radius_save">Guardar</string>
     <string name="search_radius_cancel">Cancelar</string>
     <string name="success_radius_updated">Radio de búsqueda actualizado exitosamente</string>
+    <string name="success_sign_out">Sesión cerrada exitosamente</string>
+    <string name="user_menu_search_radius">Radio de búsqueda</string>
+    <string name="user_menu_search_radius_with_value">Radio de búsqueda: %1$.1f km</string>
+    <string name="user_menu_configure_search_radius">Configurar Radio de Búsqueda</string>
+    <string name="search_radius_info_title">ℹ️ Información</string>
+    <string name="search_radius_info_smaller">• Un radio más pequeño mostrará yard sales más cercanas</string>
+    <string name="search_radius_info_larger">• Un radio más grande incluirá más yard sales pero más lejanas</string>
+    <string name="search_radius_info_changeable">• Puedes cambiar esta configuración en cualquier momento</string>
+    <string name="search_radius_unit_km">Kilómetros</string>
+    <string name="search_radius_unit_miles">Millas</string>
+    <string name="search_radius_unit_selector">Unidad de distancia</string>
     <string name="error_radius_update_failed">Error al actualizar el radio de búsqueda</string>
 </resources>

@@ -319,14 +319,15 @@ class FirebaseRepository {
     // ==================== CONFIGURACIÓN DE USUARIO ====================
     
     /**
-     * Actualiza el radio de búsqueda del usuario
+     * Actualiza el radio de búsqueda y unidad de distancia del usuario
      */
-    suspend fun updateUserSearchRadius(userId: String, radiusKm: Float): Result<Unit> {
+    suspend fun updateUserSearchRadius(userId: String, radiusKm: Float, unit: DistanceUnit): Result<Unit> {
         return try {
             val userRef = usersCollection.document(userId)
             userRef.update(
                 mapOf(
                     "radioBusquedaKm" to radiusKm,
+                    "unidadDistancia" to unit.name,
                     "fechaActualizacion" to com.google.firebase.Timestamp.now()
                 )
             ).await()

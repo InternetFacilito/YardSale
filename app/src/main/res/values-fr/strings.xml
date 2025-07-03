@@ -140,5 +140,16 @@
     <string name="search_radius_save">Enregistrer</string>
     <string name="search_radius_cancel">Annuler</string>
     <string name="success_radius_updated">Rayon de recherche mis à jour avec succès</string>
+    <string name="success_sign_out">Session fermée avec succès</string>
+    <string name="user_menu_search_radius">Rayon de recherche</string>
+    <string name="user_menu_search_radius_with_value">Rayon de recherche : %1$.1f km</string>
+    <string name="user_menu_configure_search_radius">Configurer le rayon de recherche</string>
+    <string name="search_radius_info_title">ℹ️ Information</string>
+    <string name="search_radius_info_smaller">• Un rayon plus petit affichera les ventes de garage plus proches</string>
+    <string name="search_radius_info_larger">• Un rayon plus grand inclura plus de ventes de garage mais plus éloignées</string>
+    <string name="search_radius_info_changeable">• Vous pouvez modifier ce paramètre à tout moment</string>
+    <string name="search_radius_unit_km">Kilomètres</string>
+    <string name="search_radius_unit_miles">Miles</string>
+    <string name="search_radius_unit_selector">Unité de distance</string>
     <string name="error_radius_update_failed">Erreur lors de la mise à jour du rayon de recherche</string>
 </resources> 

@@ -79,6 +79,8 @@ fun MapScreen(
     
 
     
+
+    
     // Launcher para permisos de ubicación
     val locationPermissionLauncher = rememberLocationPermissionLauncher(
         onPermissionGranted = {
@@ -138,6 +140,8 @@ fun MapScreen(
     
 
     
+
+    
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -147,7 +151,7 @@ fun MapScreen(
             cameraPositionState = cameraPositionState,
             properties = mapProperties,
             uiSettings = MapUiSettings(
-                zoomControlsEnabled = true,
+                zoomControlsEnabled = false,
                 myLocationButtonEnabled = true,
                 mapToolbarEnabled = false,
                 compassEnabled = true
@@ -338,39 +342,6 @@ fun MapScreen(
                             }
                         ) {
                             Text(stringResource(R.string.retry))
-                        }
-                    }
-                }
-            } else if (currentLocation != null) {
-                Card(
-                    modifier = Modifier.fillMaxWidth(),
-                    colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f)
-                    )
-                ) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(16.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.LocationOn,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.primary
-                        )
-                        Spacer(modifier = Modifier.width(12.dp))
-                        Column {
-                            Text(
-                                text = stringResource(R.string.your_location),
-                                style = MaterialTheme.typography.bodyMedium,
-                                fontWeight = FontWeight.Medium
-                            )
-                            Text(
-                                text = stringResource(R.string.search_radius),
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
                         }
                     }
                 }

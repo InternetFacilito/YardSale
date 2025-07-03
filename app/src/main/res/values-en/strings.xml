@@ -140,5 +140,16 @@
     <string name="search_radius_save">Save</string>
     <string name="search_radius_cancel">Cancel</string>
     <string name="success_radius_updated">Search radius updated successfully</string>
+    <string name="success_sign_out">Session closed successfully</string>
+    <string name="user_menu_search_radius">Search radius</string>
+    <string name="user_menu_search_radius_with_value">Search radius: %1$.1f km</string>
+    <string name="user_menu_configure_search_radius">Configure Search Radius</string>
+    <string name="search_radius_info_title">ℹ️ Information</string>
+    <string name="search_radius_info_smaller">• A smaller radius will show closer yard sales</string>
+    <string name="search_radius_info_larger">• A larger radius will include more yard sales but farther away</string>
+    <string name="search_radius_info_changeable">• You can change this setting at any time</string>
+    <string name="search_radius_unit_km">Kilometers</string>
+    <string name="search_radius_unit_miles">Miles</string>
+    <string name="search_radius_unit_selector">Distance unit</string>
     <string name="error_radius_update_failed">Error updating search radius</string>
 </resources> 

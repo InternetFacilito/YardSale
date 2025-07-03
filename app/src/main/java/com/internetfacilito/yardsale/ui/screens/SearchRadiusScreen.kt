@@ -18,16 +18,24 @@ import com.internetfacilito.yardsale.data.model.User
 @Composable
 fun SearchRadiusScreen(
     user: User,
-    onSave: (Float) -> Unit,
+    onSave: (Float, DistanceUnit) -> Unit,
     onCancel: () -> Unit
 ) {
-    var currentRadius by remember { mutableStateOf(user.radioBusquedaKm) }
+    // Convertir el radio almacenado en km a la unidad preferida del usuario
+    val initialRadiusInPreferredUnit = user.radioBusquedaKm / user.unidadDistancia.conversionToKm
+    var currentRadius by remember { mutableStateOf(initialRadiusInPreferredUnit) }
+    var currentUnit by remember { mutableStateOf(user.unidadDistancia) }
     var isSaving by remember { mutableStateOf(false) }
     
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(
+                start = 16.dp,
+                end = 16.dp,
+                bottom = 16.dp,
+                top = 80.dp // Padding extra en la parte superior para el botón de menú
+            )
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -61,7 +69,7 @@ fun SearchRadiusScreen(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = stringResource(R.string.search_radius_current, currentRadius),
+                    text = stringResource(R.string.search_radius_current, "${String.format("%.1f", currentRadius)} ${currentUnit.symbol}"),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onPrimaryContainer
@@ -81,12 +89,12 @@ fun SearchRadiusScreen(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    text = stringResource(R.string.search_radius_min),
+                    text = if (currentUnit == DistanceUnit.KILOMETERS) "0.5 km" else "0.3 mi",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 Text(
-                    text = stringResource(R.string.search_radius_max),
+                    text = if (currentUnit == DistanceUnit.KILOMETERS) "10 km" else "6.2 mi",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -98,18 +106,82 @@ fun SearchRadiusScreen(
             Slider(
                 value = currentRadius,
                 onValueChange = { currentRadius = it },
-                valueRange = 0.5f..10f,
-                steps = 19, // 19 pasos entre 0.5 y 10 (0.5, 1.0, 1.5, ..., 10.0)
+                valueRange = if (currentUnit == DistanceUnit.KILOMETERS) 0.5f..10f else 0.3f..6.2f,
+                steps = 19, // 19 pasos
                 modifier = Modifier.fillMaxWidth()
             )
             
             // Valor actual del slider
             Text(
-                text = "${currentRadius} km",
+                text = "${currentRadius} ${currentUnit.symbol}",
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             )
+        }
+        
+        // Selector de unidad de distancia
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 24.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surfaceVariant
+            )
+        ) {
+            Column(
+                modifier = Modifier.padding(16.dp)
+            ) {
+                Text(
+                    text = stringResource(R.string.search_radius_unit_selector),
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(bottom = 12.dp)
+                )
+                
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    // Botón para Kilómetros
+                    OutlinedButton(
+                        onClick = { 
+                            // Convertir el valor actual a la nueva unidad
+                            val radiusInKm = currentRadius * currentUnit.conversionToKm
+                            currentRadius = radiusInKm / DistanceUnit.KILOMETERS.conversionToKm
+                            currentUnit = DistanceUnit.KILOMETERS 
+                        },
+                        modifier = Modifier.weight(1f),
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            containerColor = if (currentUnit == DistanceUnit.KILOMETERS) 
+                                MaterialTheme.colorScheme.primaryContainer 
+                            else 
+                                MaterialTheme.colorScheme.surface
+                        )
+                    ) {
+                        Text(stringResource(R.string.search_radius_unit_km))
+                    }
+                    
+                    // Botón para Millas
+                    OutlinedButton(
+                        onClick = { 
+                            // Convertir el valor actual a la nueva unidad
+                            val radiusInKm = currentRadius * currentUnit.conversionToKm
+                            currentRadius = radiusInKm / DistanceUnit.MILES.conversionToKm
+                            currentUnit = DistanceUnit.MILES 
+                        },
+                        modifier = Modifier.weight(1f),
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            containerColor = if (currentUnit == DistanceUnit.MILES) 
+                                MaterialTheme.colorScheme.primaryContainer 
+                            else 
+                                MaterialTheme.colorScheme.surface
+                        )
+                    ) {
+                        Text(stringResource(R.string.search_radius_unit_miles))
+                    }
+                }
+            }
         }
         
         // Información adicional
@@ -125,24 +197,24 @@ fun SearchRadiusScreen(
                 modifier = Modifier.padding(16.dp)
             ) {
                 Text(
-                    text = "ℹ️ Información",
+                    text = stringResource(R.string.search_radius_info_title),
                     style = MaterialTheme.typography.titleSmall,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSecondaryContainer,
                     modifier = Modifier.padding(bottom = 8.dp)
                 )
                 Text(
-                    text = "• Un radio más pequeño mostrará yard sales más cercanas",
+                    text = stringResource(R.string.search_radius_info_smaller),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSecondaryContainer
                 )
                 Text(
-                    text = "• Un radio más grande incluirá más yard sales pero más lejanas",
+                    text = stringResource(R.string.search_radius_info_larger),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSecondaryContainer
                 )
                 Text(
-                    text = "• Puedes cambiar esta configuración en cualquier momento",
+                    text = stringResource(R.string.search_radius_info_changeable),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSecondaryContainer
                 )
@@ -164,13 +236,13 @@ fun SearchRadiusScreen(
             }
             
             // Botón Guardar
-            Button(
-                onClick = {
-                    isSaving = true
-                    onSave(currentRadius)
-                },
+                    Button(
+            onClick = {
+                isSaving = true
+                onSave(currentRadius, currentUnit)
+            },
                 modifier = Modifier.weight(1f),
-                enabled = !isSaving && currentRadius != user.radioBusquedaKm
+                enabled = !isSaving && (currentRadius * currentUnit.conversionToKm != user.radioBusquedaKm || currentUnit != user.unidadDistancia)
             ) {
                 if (isSaving) {
                     CircularProgressIndicator(

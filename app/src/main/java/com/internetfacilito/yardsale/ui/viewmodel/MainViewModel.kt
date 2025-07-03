@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.delay
 import com.internetfacilito.yardsale.R
 
 class MainViewModel : ViewModel() {
@@ -189,7 +190,10 @@ class MainViewModel : ViewModel() {
             repository.signOut()
             _currentUser.value = null
             _guestSession.value = null
-            // Mostrar pantalla de selección después de cerrar sesión
+            // Mostrar mensaje de éxito y luego pantalla de selección
+            _uiState.value = UiState.Success("success_sign_out")
+            // Después de mostrar el mensaje, cambiar a pantalla de selección
+            delay(1500) // Esperar 1.5 segundos para que se vea el mensaje
             _uiState.value = UiState.SessionChoice
         }
     }
@@ -293,19 +297,25 @@ class MainViewModel : ViewModel() {
     }
     
     /**
-     * Actualiza el radio de búsqueda del usuario actual
+     * Actualiza el radio de búsqueda y unidad de distancia del usuario actual
      */
-    fun updateUserSearchRadius(radiusKm: Float) {
+    fun updateUserSearchRadius(radius: Float, unit: DistanceUnit) {
         viewModelScope.launch {
             try {
                 val currentUser = _currentUser.value
                 if (currentUser != null) {
-                    val result = repository.updateUserSearchRadius(currentUser.id, radiusKm)
+                    // Convertir el radio a kilómetros para almacenamiento
+                    val radiusInKm = radius * unit.conversionToKm
+                    
+                    val result = repository.updateUserSearchRadius(currentUser.id, radiusInKm, unit)
                     
                     result.fold(
                         onSuccess = {
-                            // Actualizar el usuario local con el nuevo radio
-                            _currentUser.value = currentUser.copy(radioBusquedaKm = radiusKm)
+                            // Actualizar el usuario local con el nuevo radio y unidad
+                            _currentUser.value = currentUser.copy(
+                                radioBusquedaKm = radiusInKm,
+                                unidadDistancia = unit
+                            )
                             _uiState.value = UiState.Success("success_radius_updated")
                         },
                         onFailure = { exception ->

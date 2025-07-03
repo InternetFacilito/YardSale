@@ -137,6 +137,7 @@ fun YardSaleApp(viewModel: MainViewModel) {
                 val msg = when (key) {
                     "success_registration" -> context.getString(R.string.success_registration)
                     "success_radius_updated" -> context.getString(R.string.success_radius_updated)
+                    "success_sign_out" -> context.getString(R.string.success_sign_out)
                     else -> key
                 }
                 snackbarHostState.showSnackbar(msg)
@@ -499,8 +500,8 @@ fun YardSaleApp(viewModel: MainViewModel) {
                     currentUser?.let { user ->
                         SearchRadiusScreen(
                             user = user,
-                            onSave = { radius ->
-                                viewModel.updateUserSearchRadius(radius)
+                            onSave = { radius, unit ->
+                                viewModel.updateUserSearchRadius(radius, unit)
                             },
                             onCancel = {
                                 showSearchRadius = false

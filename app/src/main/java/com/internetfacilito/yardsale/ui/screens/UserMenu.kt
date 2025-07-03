@@ -122,12 +122,14 @@ fun UserMenu(
             ) {
                 Icon(
                     imageVector = Icons.Default.RadioButtonChecked,
-                    contentDescription = "Radio de búsqueda",
+                    contentDescription = stringResource(R.string.user_menu_search_radius),
                     tint = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.size(16.dp)
                 )
+                // Convertir el radio almacenado en km a la unidad preferida del usuario
+                val radiusInPreferredUnit = user.radioBusquedaKm / user.unidadDistancia.conversionToKm
                 Text(
-                    text = "Radio de búsqueda: ${user.radioBusquedaKm} km",
+                    text = "${String.format("%.1f", radiusInPreferredUnit)} ${user.unidadDistancia.symbol}",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -145,11 +147,11 @@ fun UserMenu(
             ) {
                 Icon(
                     imageVector = Icons.Default.Settings,
-                    contentDescription = "Configurar radio de búsqueda",
+                    contentDescription = stringResource(R.string.user_menu_configure_search_radius),
                     modifier = Modifier.size(18.dp)
                 )
                 Spacer(modifier = Modifier.width(8.dp))
-                Text("Configurar Radio de Búsqueda")
+                Text(stringResource(R.string.user_menu_configure_search_radius))
             }
             
             // Botón de cerrar sesión
