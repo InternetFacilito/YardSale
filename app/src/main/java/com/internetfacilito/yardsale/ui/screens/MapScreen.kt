@@ -40,6 +40,7 @@ fun MapScreen(
     onSignOut: () -> Unit,
     onGoToRegister: () -> Unit,
     onGoToLogin: () -> Unit,
+    onTestSimpleMap: () -> Unit = {},
     mainViewModel: MainViewModel = viewModel()
 ) {
     val context = LocalContext.current
@@ -249,6 +250,28 @@ fun MapScreen(
                     containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f)
                 )
             ) {
+                // Botón de prueba de mapa simple
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 8.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "🔍 Debug Mapa",
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Button(
+                        onClick = onTestSimpleMap,
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = MaterialTheme.colorScheme.primary
+                        )
+                    ) {
+                        Text("🗺️ Probar Mapa Simple")
+                    }
+                }
                 Column(
                     modifier = Modifier.padding(8.dp)
                 ) {

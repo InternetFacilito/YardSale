@@ -122,6 +122,7 @@ fun YardSaleApp(viewModel: MainViewModel) {
     var showLogin by remember { mutableStateOf(false) }
     var showRegister by remember { mutableStateOf(false) }
     var showSearchRadius by remember { mutableStateOf(false) }
+    var showSimpleMapTest by remember { mutableStateOf(false) }
     var errorMessage by remember { mutableStateOf<String?>(null) }
     var showGuestMenu by remember { mutableStateOf(false) }
     var showUserMenu by remember { mutableStateOf(false) }
@@ -220,6 +221,7 @@ fun YardSaleApp(viewModel: MainViewModel) {
                         onSignOut = { viewModel.signOut() },
                         onGoToRegister = { showRegister = true },
                         onGoToLogin = { showLogin = true },
+                        onTestSimpleMap = { showSimpleMapTest = true },
                         mainViewModel = viewModel
                     )
                     
@@ -272,6 +274,7 @@ fun YardSaleApp(viewModel: MainViewModel) {
                         onSignOut = { viewModel.signOut() },
                         onGoToRegister = { showRegister = true },
                         onGoToLogin = { showLogin = true },
+                        onTestSimpleMap = { showSimpleMapTest = true },
                         mainViewModel = viewModel
                     )
                     
@@ -324,6 +327,7 @@ fun YardSaleApp(viewModel: MainViewModel) {
                         onSignOut = { /* No aplica para invitados */ },
                         onGoToRegister = { showRegister = true },
                         onGoToLogin = { showLogin = true },
+                        onTestSimpleMap = { showSimpleMapTest = true },
                         mainViewModel = viewModel
                     )
                     
@@ -372,6 +376,7 @@ fun YardSaleApp(viewModel: MainViewModel) {
                         onSignOut = { /* No aplica para invitados */ },
                         onGoToRegister = { showRegister = true },
                         onGoToLogin = { showLogin = true },
+                        onTestSimpleMap = { showSimpleMapTest = true },
                         mainViewModel = viewModel
                     )
                     
@@ -513,6 +518,15 @@ fun YardSaleApp(viewModel: MainViewModel) {
                     }
                 }
             }
+            
+            // Pantalla de prueba de mapa simple
+            if (showSimpleMapTest) {
+                SimpleMapTestScreen(
+                    onBack = {
+                        showSimpleMapTest = false
+                    }
+                )
+            }
         }
     }
 }
@@ -532,7 +546,8 @@ fun GuestLimitReachedContent(
             guestSession = session,
             onSignOut = { },
             onGoToRegister = onRegister,
-            onGoToLogin = { }
+            onGoToLogin = { },
+            onTestSimpleMap = { }
         )
     }
 }
