@@ -153,6 +153,7 @@ fun MapScreen(
             println("   - Error de ubicación: $locationError")
             println("   - Ubicación actual: $currentLocation")
             println("   - Propiedades del mapa: $mapProperties")
+            println("   - Intentando cargar Google Maps...")
         }
         
         // Mapa de Google
