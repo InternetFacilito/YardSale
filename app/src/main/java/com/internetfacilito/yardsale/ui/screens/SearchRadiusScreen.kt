@@ -240,32 +240,19 @@ fun SearchRadiusScreen(
             // Botón Guardar
                     Button(
             onClick = {
+                println("🚀 CLICK EN BOTÓN GUARDAR")
                 println("💾 Guardando: $currentRadius ${currentUnit.symbol}")
                 println("📊 Radio en km: ${currentRadius * currentUnit.conversionToKm}")
                 println("📊 Radio actual del usuario: ${user.radioBusquedaKm}")
                 println("📊 Unidad actual: ${try { user.unidadDistancia } catch (e: Exception) { DistanceUnit.KILOMETERS }}")
+                println("🔄 Estableciendo isSaving = true")
                 isSaving = true
+                println("📞 Llamando a onSave...")
                 onSave(currentRadius, currentUnit)
+                println("✅ onSave llamado exitosamente")
             },
                 modifier = Modifier.weight(1f),
-                enabled = !isSaving && run {
-                    val radioEnKm = currentRadius * currentUnit.conversionToKm
-                    val unidadActual = try { user.unidadDistancia } catch (e: Exception) { DistanceUnit.KILOMETERS }
-                    val radioCambio = radioEnKm != user.radioBusquedaKm
-                    val unidadCambio = radioEnKm == user.radioBusquedaKm && currentUnit != unidadActual
-                    val debeHabilitar = radioCambio || unidadCambio
-                    
-                    println("🔍 Condición botón guardar:")
-                    println("  - Radio en km: $radioEnKm")
-                    println("  - Radio usuario: ${user.radioBusquedaKm}")
-                    println("  - Unidad actual: $currentUnit")
-                    println("  - Unidad usuario: $unidadActual")
-                    println("  - Cambio radio: $radioCambio")
-                    println("  - Cambio unidad: $unidadCambio")
-                    println("  - Habilitar: $debeHabilitar")
-                    
-                    debeHabilitar
-                }
+                enabled = !isSaving && true // Simplificar temporalmente para debug
             ) {
                 if (isSaving) {
                     CircularProgressIndicator(

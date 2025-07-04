@@ -300,9 +300,13 @@ class MainViewModel : ViewModel() {
      * Actualiza el radio de búsqueda y unidad de distancia del usuario actual
      */
     fun updateUserSearchRadius(radius: Float, unit: DistanceUnit) {
+        println("🎯 FUNCIÓN updateUserSearchRadius INICIADA")
+        println("📥 Parámetros recibidos: radius=$radius, unit=$unit")
         viewModelScope.launch {
             try {
+                println("🚀 Iniciando corrutina...")
                 val currentUser = _currentUser.value
+                println("👤 Usuario actual: $currentUser")
                 if (currentUser != null) {
                     println("🔄 Actualizando radio de búsqueda: $radius ${unit.symbol}")
                     
