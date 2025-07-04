@@ -145,6 +145,17 @@ fun MapScreen(
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
+        // Debug: Imprimir información del estado
+        LaunchedEffect(Unit) {
+            println("🔍 DEBUG MAPA:")
+            println("   - API Key definida: ${MAPS_API_KEY.isNotEmpty()}")
+            println("   - Permisos de ubicación: $hasLocationPermission")
+            println("   - Cargando ubicación: $isLoadingLocation")
+            println("   - Error de ubicación: $locationError")
+            println("   - Ubicación actual: $currentLocation")
+            println("   - Propiedades del mapa: $mapProperties")
+        }
+        
         // Mapa de Google
         GoogleMap(
             modifier = Modifier.fillMaxSize(),
@@ -158,6 +169,9 @@ fun MapScreen(
             ),
             onMapLoaded = {
                 println("🗺️ Mapa cargado exitosamente")
+            },
+            onMapClick = { latLng ->
+                println("🗺️ Click en mapa: ${latLng.latitude}, ${latLng.longitude}")
             },
             onMapLongClick = { latLng ->
                 exploredLocation = latLng
@@ -220,6 +234,40 @@ fun MapScreen(
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
+            // Debug info (temporal)
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f)
+                )
+            ) {
+                Column(
+                    modifier = Modifier.padding(8.dp)
+                ) {
+                    Text(
+                        text = "🔍 Debug Mapa",
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Text(
+                        text = "API Key: ${if (MAPS_API_KEY.isNotEmpty()) "✅" else "❌"}",
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                    Text(
+                        text = "Permisos: ${if (hasLocationPermission) "✅" else "❌"}",
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                    Text(
+                        text = "Ubicación: ${if (currentLocation != null) "✅" else "❌"}",
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                    Text(
+                        text = "Error: ${locationError ?: "Ninguno"}",
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.height(8.dp))
             // Solicitar permisos si no están concedidos
             if (!hasLocationPermission && !isLoadingLocation && locationError == null) {
                 Card(
