@@ -22,10 +22,9 @@ fun SearchRadiusScreen(
     onSave: (Float, DistanceUnit) -> Unit,
     onCancel: () -> Unit
 ) {
-    // Convertir el radio almacenado en km a la unidad preferida del usuario
+    // Usar el radio almacenado en la unidad del usuario
     val unit = try { user.unidadDistancia } catch (e: Exception) { DistanceUnit.KILOMETERS }
-    val initialRadiusInPreferredUnit = user.radioBusquedaKm / unit.conversionToKm
-    var currentRadius by remember { mutableStateOf(initialRadiusInPreferredUnit) }
+    var currentRadius by remember { mutableStateOf(user.radioBusqueda) }
     var currentUnit by remember { mutableStateOf(unit) }
     var isSaving by remember { mutableStateOf(false) }
     
@@ -242,8 +241,7 @@ fun SearchRadiusScreen(
             onClick = {
                 println("🚀 CLICK EN BOTÓN GUARDAR")
                 println("💾 Guardando: $currentRadius ${currentUnit.symbol}")
-                println("📊 Radio en km: ${currentRadius * currentUnit.conversionToKm}")
-                println("📊 Radio actual del usuario: ${user.radioBusquedaKm}")
+                println("📊 Radio actual del usuario: ${user.radioBusqueda} ${unit.symbol}")
                 println("📊 Unidad actual: ${try { user.unidadDistancia } catch (e: Exception) { DistanceUnit.KILOMETERS }}")
                 println("🔄 Estableciendo isSaving = true")
                 isSaving = true

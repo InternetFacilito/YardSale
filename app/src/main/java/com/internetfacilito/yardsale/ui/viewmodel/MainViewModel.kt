@@ -310,18 +310,14 @@ class MainViewModel : ViewModel() {
                 if (currentUser != null) {
                     println("🔄 Actualizando radio de búsqueda: $radius ${unit.symbol}")
                     
-                    // Convertir el radio a kilómetros para almacenamiento
-                    val radiusInKm = radius * unit.conversionToKm
-                    println("📏 Radio convertido a km: $radiusInKm")
-                    
-                    val result = repository.updateUserSearchRadius(currentUser.id, radiusInKm, unit)
+                    val result = repository.updateUserSearchRadius(currentUser.id, radius, unit)
                     
                     result.fold(
                         onSuccess = {
                             println("✅ Radio actualizado exitosamente")
                             // Actualizar el usuario local con el nuevo radio y unidad
                             _currentUser.value = currentUser.copy(
-                                radioBusquedaKm = radiusInKm,
+                                radioBusqueda = radius,
                                 unidadDistancia = unit
                             )
                             _uiState.value = UiState.Success("success_radius_updated")

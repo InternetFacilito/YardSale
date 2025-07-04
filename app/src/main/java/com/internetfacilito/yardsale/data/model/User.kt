@@ -10,7 +10,7 @@ data class User(
     val email: String = "",
     val ubicacion: GeoPoint? = null,
     val telefono: String = "",
-    val radioBusquedaKm: Float = 1.0f, // Radio de búsqueda en kilómetros
+    val radioBusqueda: Float = 1.0f, // Radio de búsqueda en la unidad elegida por el usuario
     val unidadDistancia: DistanceUnit = DistanceUnit.KILOMETERS, // Unidad de distancia preferida
     val fechaRegistro: Timestamp? = null,
     val estado: UserStatus = UserStatus.ACTIVO,
