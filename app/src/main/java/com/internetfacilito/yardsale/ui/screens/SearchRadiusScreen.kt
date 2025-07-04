@@ -71,7 +71,7 @@ fun SearchRadiusScreen(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = stringResource(R.string.search_radius_current, "${String.format("%.1f", currentRadius)} ${currentUnit.symbol}"),
+                    text = "${String.format("%.1f", currentRadius)} ${currentUnit.symbol}",
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onPrimaryContainer
