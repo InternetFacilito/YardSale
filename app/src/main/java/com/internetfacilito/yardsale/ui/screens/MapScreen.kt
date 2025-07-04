@@ -156,6 +156,16 @@ fun MapScreen(
             println("   - Intentando cargar Google Maps...")
         }
         
+        // Debug: Imprimir información de yard sales
+        LaunchedEffect(yardSales) {
+            println("🏪 YARD SALES DEBUG:")
+            println("   - Total cargadas: ${yardSales.size}")
+            println("   - Con ubicación: ${yardSales.count { it.ubicacion != null }}")
+            yardSales.forEach { yardSale ->
+                println("   - ${yardSale.titulo}: ${yardSale.ubicacion ?: "Sin ubicación"}")
+            }
+        }
+        
         // Mapa de Google
         GoogleMap(
             modifier = Modifier.fillMaxSize(),
@@ -212,19 +222,17 @@ fun MapScreen(
             
             // Marcadores de yard sales
             yardSales.forEach { yardSale ->
-                // Por ahora usamos ubicaciones de ejemplo
-                // En el futuro, yardSale tendrá latitud y longitud
-                val yardSaleLocation = LatLng(
-                    19.4326 + (Math.random() - 0.5) * 0.1, // Variación alrededor de CDMX
-                    -99.1332 + (Math.random() - 0.5) * 0.1
-                )
-                
-                Marker(
-                    state = MarkerState(position = yardSaleLocation),
-                    title = yardSale.titulo,
-                    snippet = yardSale.direccion,
-                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)
-                )
+                // Usar ubicación real de Firebase
+                yardSale.ubicacion?.let { geoPoint ->
+                    val yardSaleLocation = LatLng(geoPoint.latitude, geoPoint.longitude)
+                    
+                    Marker(
+                        state = MarkerState(position = yardSaleLocation),
+                        title = yardSale.titulo,
+                        snippet = yardSale.direccion,
+                        icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)
+                    )
+                }
             }
         }
         
@@ -254,6 +262,11 @@ fun MapScreen(
                         style = MaterialTheme.typography.bodySmall
                     )
                     Text(
+                        text = "Estado del mapa: Cargando...",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                    Text(
                         text = "Permisos: ${if (hasLocationPermission) "✅" else "❌"}",
                         style = MaterialTheme.typography.bodySmall
                     )
@@ -263,6 +276,14 @@ fun MapScreen(
                     )
                     Text(
                         text = "Error: ${locationError ?: "Ninguno"}",
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                    Text(
+                        text = "Yard Sales cargadas: ${yardSales.size}",
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                    Text(
+                        text = "Con ubicación: ${yardSales.count { it.ubicacion != null }}",
                         style = MaterialTheme.typography.bodySmall
                     )
                 }
