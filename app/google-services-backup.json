@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:188713479538:android:a3440ff41540a157a681eb",
+        "mobilesdk_app_id": "1:188713479538:android:55249df191733bf9a681eb",
         "android_client_info": {
           "package_name": "com.internetfacilito.yardsale"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyARcQzGH6xqgu9OmeATAr9gNlDKVSX0L90"
+          "current_key": "AIzaSyAuaNsZU2ZK3HHEhs0VWBI6uvnXIGqtKnE"
         }
       ],
       "services": {
