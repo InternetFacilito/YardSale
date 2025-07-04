@@ -323,16 +323,21 @@ class FirebaseRepository {
      */
     suspend fun updateUserSearchRadius(userId: String, radiusKm: Float, unit: DistanceUnit): Result<Unit> {
         return try {
+            println("🔥 Actualizando usuario $userId con radio $radiusKm km y unidad ${unit.name}")
             val userRef = usersCollection.document(userId)
-            userRef.update(
-                mapOf(
-                    "radioBusquedaKm" to radiusKm,
-                    "unidadDistancia" to unit.name,
-                    "fechaActualizacion" to com.google.firebase.Timestamp.now()
-                )
-            ).await()
+            
+            val updateData = mapOf(
+                "radioBusquedaKm" to radiusKm,
+                "unidadDistancia" to unit.name,
+                "fechaActualizacion" to com.google.firebase.Timestamp.now()
+            )
+            
+            println("📝 Datos a actualizar: $updateData")
+            userRef.update(updateData).await()
+            println("✅ Usuario actualizado exitosamente en Firebase")
             Result.success(Unit)
         } catch (e: Exception) {
+            println("❌ Error en Firebase: ${e.message}")
             Result.failure(e)
         }
     }

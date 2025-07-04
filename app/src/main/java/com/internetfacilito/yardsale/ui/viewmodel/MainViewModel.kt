@@ -304,13 +304,17 @@ class MainViewModel : ViewModel() {
             try {
                 val currentUser = _currentUser.value
                 if (currentUser != null) {
+                    println("🔄 Actualizando radio de búsqueda: $radius ${unit.symbol}")
+                    
                     // Convertir el radio a kilómetros para almacenamiento
                     val radiusInKm = radius * unit.conversionToKm
+                    println("📏 Radio convertido a km: $radiusInKm")
                     
                     val result = repository.updateUserSearchRadius(currentUser.id, radiusInKm, unit)
                     
                     result.fold(
                         onSuccess = {
+                            println("✅ Radio actualizado exitosamente")
                             // Actualizar el usuario local con el nuevo radio y unidad
                             _currentUser.value = currentUser.copy(
                                 radioBusquedaKm = radiusInKm,
@@ -319,11 +323,16 @@ class MainViewModel : ViewModel() {
                             _uiState.value = UiState.Success("success_radius_updated")
                         },
                         onFailure = { exception ->
+                            println("❌ Error al actualizar radio: ${exception.message}")
                             _uiState.value = UiState.Error("error_radius_update_failed")
                         }
                     )
+                } else {
+                    println("❌ No hay usuario actual")
+                    _uiState.value = UiState.Error("error_radius_update_failed")
                 }
             } catch (e: Exception) {
+                println("❌ Excepción inesperada: ${e.message}")
                 _uiState.value = UiState.Error("error_unexpected")
             }
         }
