@@ -36,6 +36,7 @@ import com.internetfacilito.yardsale.ui.screens.MapScreen
 import com.internetfacilito.yardsale.ui.screens.RegisterScreen
 import com.internetfacilito.yardsale.ui.screens.SearchRadiusScreen
 import com.internetfacilito.yardsale.ui.screens.SessionChoiceScreen
+import com.internetfacilito.yardsale.ui.screens.SimpleMapTestScreen
 import com.internetfacilito.yardsale.ui.screens.UserMenu
 import com.internetfacilito.yardsale.ui.theme.YardSaleTheme
 import com.internetfacilito.yardsale.ui.viewmodel.MainViewModel
