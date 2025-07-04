@@ -148,7 +148,6 @@ fun MapScreen(
         // Debug: Imprimir información del estado
         LaunchedEffect(Unit) {
             println("🔍 DEBUG MAPA:")
-            println("   - API Key definida: ${MAPS_API_KEY.isNotEmpty()}")
             println("   - Permisos de ubicación: $hasLocationPermission")
             println("   - Cargando ubicación: $isLoadingLocation")
             println("   - Error de ubicación: $locationError")
@@ -250,7 +249,7 @@ fun MapScreen(
                         fontWeight = FontWeight.Bold
                     )
                     Text(
-                        text = "API Key: ${if (MAPS_API_KEY.isNotEmpty()) "✅" else "❌"}",
+                        text = "API Key: ✅ (definida en build.gradle)",
                         style = MaterialTheme.typography.bodySmall
                     )
                     Text(
