@@ -127,9 +127,10 @@ fun UserMenu(
                     modifier = Modifier.size(16.dp)
                 )
                 // Convertir el radio almacenado en km a la unidad preferida del usuario
-                val radiusInPreferredUnit = user.radioBusquedaKm / user.unidadDistancia.conversionToKm
+                val unit = try { user.unidadDistancia } catch (e: Exception) { DistanceUnit.KILOMETERS }
+                val radiusInPreferredUnit = user.radioBusquedaKm / unit.conversionToKm
                 Text(
-                    text = "${String.format("%.1f", radiusInPreferredUnit)} ${user.unidadDistancia.symbol}",
+                    text = "${String.format("%.1f", radiusInPreferredUnit)} ${unit.symbol}",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
