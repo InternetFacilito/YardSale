@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.internetfacilito.yardsale.R
 import com.internetfacilito.yardsale.data.model.User
+import com.internetfacilito.yardsale.data.model.DistanceUnit
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
