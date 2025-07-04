@@ -152,4 +152,5 @@
     <string name="search_radius_unit_miles">Miles</string>
     <string name="search_radius_unit_selector">Unité de distance</string>
     <string name="error_radius_update_failed">Erreur lors de la mise à jour du rayon de recherche</string>
+    <string name="error_no_internet">Pas de connexion Internet. Vérifiez votre connexion et réessayez.</string>
 </resources> 

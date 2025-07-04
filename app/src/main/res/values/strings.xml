@@ -152,4 +152,5 @@
     <string name="search_radius_unit_miles">Millas</string>
     <string name="search_radius_unit_selector">Unidad de distancia</string>
     <string name="error_radius_update_failed">Error al actualizar el radio de búsqueda</string>
+    <string name="error_no_internet">Sin conexión a internet. Verifica tu conexión y vuelve a intentar.</string>
 </resources>

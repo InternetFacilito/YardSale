@@ -324,7 +324,16 @@ class MainViewModel : ViewModel() {
                         },
                         onFailure = { exception ->
                             println("❌ Error al actualizar radio: ${exception.message}")
-                            _uiState.value = UiState.Error("error_radius_update_failed")
+                            val errorMessage = when {
+                                exception.message?.contains("Unable to resolve host") == true -> 
+                                    "error_no_internet"
+                                exception.message?.contains("network") == true -> 
+                                    "error_network"
+                                exception.message?.contains("timeout") == true -> 
+                                    "error_timeout"
+                                else -> "error_radius_update_failed"
+                            }
+                            _uiState.value = UiState.Error(errorMessage)
                         }
                     )
                 } else {

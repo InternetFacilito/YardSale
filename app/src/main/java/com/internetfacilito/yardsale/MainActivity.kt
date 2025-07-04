@@ -556,6 +556,7 @@ fun ErrorContent(message: String, onDismiss: () -> Unit) {
         "error_initialization" -> context.getString(R.string.error_initialization)
         "error_guest_session" -> context.getString(R.string.error_guest_session)
         "error_device_id" -> context.getString(R.string.error_device_id)
+        "error_no_internet" -> context.getString(R.string.error_no_internet)
         else -> message // Si no es una clave conocida, mostrar el mensaje tal como viene
     }
     
