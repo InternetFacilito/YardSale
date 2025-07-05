@@ -263,13 +263,26 @@ fun MapScreen(
                         style = MaterialTheme.typography.titleSmall,
                         fontWeight = FontWeight.Bold
                     )
-                    Button(
-                        onClick = onTestSimpleMap,
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = MaterialTheme.colorScheme.primary
-                        )
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
-                        Text("🗺️ Probar Mapa Simple")
+                        Button(
+                            onClick = onTestSimpleMap,
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = MaterialTheme.colorScheme.primary
+                            )
+                        ) {
+                            Text("🗺️ Probar Mapa Simple")
+                        }
+                        
+                        Button(
+                            onClick = { /* TODO: Implementar navegación a NewMapScreen */ },
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = MaterialTheme.colorScheme.secondary
+                            )
+                        ) {
+                            Text("🆕 Nuevo Mapa")
+                        }
                     }
                 }
                 Column(
